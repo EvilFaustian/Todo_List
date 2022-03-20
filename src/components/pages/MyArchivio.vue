@@ -14,7 +14,7 @@
                         <div class="todo-item-left">
                         <input type="checkbox" v-model="todo.completed" @change="doneEdit" />
                         <div
-                            v-if="!editing"
+                            v-if="!this.$store.state.todos.editing"
                             @dblclick="editTodo"
                             class="todo-item-label"
                             :class="{ completed: todo.completed }"

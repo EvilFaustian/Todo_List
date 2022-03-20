@@ -1,7 +1,7 @@
 <template>
  <div class="container">
      <label>User: {{username}}</label>
-     <input type="text" class="todo-input" placeholder="Create new task" v-model="newTodo" @keyup.enter="addTodo">
+     <input type="text" class="todo-input" placeholder="Create new task" v-model="this.$store.state.newTodo" @keyup.enter="addTodo">
      <transition-group name="fade" enter-active-class="animate__animated animate__fadeInUp" leave-active-class="animate__animated animate__fadeOutDown" mode="out-in">
      <todo-item v-for="(todo, index) in todosFiltered" :key="todo.id" :todo="todo" :index="index" :checkAll="!anyRemaining" @removedTodo="removeTodo" @finishedEdit="finishedEdit">
      </todo-item>
@@ -40,11 +40,11 @@ export default {
   },
   data () {
       return {
-          newTodo: '',
-          idForTodo: 3,
+          newTodo: this.$store.state.newTodo,
+          idForTodo: this.$store.state.idForTodo,
           username: this.$store.state.username,
-          beforeEditCache: '',
-          filter: 'all',
+          beforeEditCache: this.$store.state.beforeEditCache,
+          filter: this.$store.state.filter,
           /* todos: [
               {
                   'id': 1,
@@ -78,11 +78,11 @@ export default {
           return this.remaining != 0
       },
       todosFiltered() {
-          if (this.filter == 'all') {
+          if (this.$store.state.filter == 'all') {
               return this.$store.state.todos
-          } else if (this.filter == 'active') {
+          } else if (this.$store.state.filter == 'active') {
               return this.$store.state.todos.filter(todo => !todo.completed)
-          } else if (this.filter == 'completed') {
+          } else if (this.$store.state.filter == 'completed') {
               return this.$store.state.todos.filter(todo => todo.completed)
           }
           return this.$store.state.todos
@@ -100,33 +100,33 @@ export default {
   },
   methods: {
       addTodo() {
-          if (this.newTodo.trim().length == 0) {
+          if (this.$store.state.newTodo.trim().length == 0) {
               return
           }
           this.$store.state.todos.push({
-              id: this.idForTodo,
-              title: this.newTodo,
+              id: this.$store.state.idForTodo,
+              title: this.$store.state.newTodo,
               author: this.$store.state.username,
               completed: false,
           })
-          this.newTodo = ''
-          this.idForTodo++
+          this.$store.state.newTodo = ''
+          this.$store.state.idForTodo++
       },
       removeTodo(index) {
           this.$store.state.todos.splice(index, 1)
       },
       editTodo(todo) {
-          this.beforeEditCache = todo.title
+          this.$store.state.beforeEditCache = todo.title
           todo.editing = true
       },
       doneEdit(todo) {
             if (todo.title.trim() == '') {
-              todo.title = this.beforeEditCache
+              todo.title = this.$store.state.beforeEditCache
             }
           todo.editing = false
       },
       cancelEdit(todo) {
-          todo.title = this.beforeEditCache
+          todo.title = this.$store.state.beforeEditCache
           todo.editing = false
       },
       checkAllTodos() {

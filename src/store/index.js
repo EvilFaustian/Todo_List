@@ -4,6 +4,10 @@ export default createStore({
   state: {
     authenticated: false,
     username: String,
+    newTodo: '',
+    idForTodo: 3,
+    beforeEditCache: '',
+    filter: 'all',
     todos: [
       {
           'id': 1,
