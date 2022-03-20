@@ -3,7 +3,7 @@
         <div class="search">
             <select name="" id="" @change="searchName" v-model.trim="selectedOption">
             <option value="">Search by Name</option>
-            <option :value="todo.author" v-for="todo in filter" :key="todo.title" @click="filterByName">{{todo.author}}</option>
+            <option :value="todo.author.toLowerCase()" v-for="todo in filter" :key="todo.title" @click="filterByName">{{todo.author}}</option>
             </select><input type="search" placeholder="Search" @focus="searchText" @change="searchText" v-model.trim="searchOption">
          </div>
         
@@ -90,7 +90,7 @@ export default {
   filterName: function () {
           return this.$store.state.archiviaTodo.filter((todoItem) => {
               if (this.nameSearch) {
-                  return todoItem.author.toLowerCase().trim().match(this.selectedOption);
+                  return todoItem.author.toLowerCase().trim().match(this.selectedOption.toLowerCase());
               } else if (this.textSearch) {
                   return todoItem.title.toLowerCase().trim().match(this.searchOption.toLowerCase()) || todoItem.author.toLowerCase().trim().match(this.searchOption.toLowerCase());
               }
