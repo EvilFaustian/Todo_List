@@ -8,6 +8,7 @@
          </div>
         
         <div class="displayArchiviati">
+            <transition-group name="fade" enter-active-class="animate__animated animate__fadeInUp" leave-active-class="animate__animated animate__fadeOutDown" mode="out-in">
                 <div v-for="(todo, index) in filterName" :key="todo.id" :index="index">
                     <div class="todo-item">
                         <div class="todo-item-left">
@@ -40,7 +41,7 @@
                     </div>
 
                 </div>       
-                    
+            </transition-group>  
         </div>
     </div>
 </template>
