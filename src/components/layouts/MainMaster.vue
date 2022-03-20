@@ -46,7 +46,8 @@ export default {
 <style lang="scss">
 .container {
   margin: auto;
-  width: 600px;
+  max-width: 600px;
+  padding: 10px;
 }
 img {
   display: block;
@@ -76,7 +77,7 @@ img {
     list-style: none;
     padding: 15px 0;
     margin: 0;
-    justify-content: flex-end;
+    justify-content: center;
     background: #F5F8FA;
     border-bottom: 1px solid lightgrey;
     margin-bottom: 24px;

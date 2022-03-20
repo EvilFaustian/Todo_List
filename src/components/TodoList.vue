@@ -1,7 +1,7 @@
 <template>
  <div class="container">
      <label>User: {{username}}</label>
-     <input type="text" class="todo-input" placeholder="What needs to be done" v-model="newTodo" @keyup.enter="addTodo">
+     <input type="text" class="todo-input" placeholder="Create new task" v-model="newTodo" @keyup.enter="addTodo">
      <transition-group name="fade" enter-active-class="animate__animated animate__fadeInUp" leave-active-class="animate__animated animate__fadeOutDown" mode="out-in">
      <todo-item v-for="(todo, index) in todosFiltered" :key="todo.id" :todo="todo" :index="index" :checkAll="!anyRemaining" @removedTodo="removeTodo" @finishedEdit="finishedEdit">
      </todo-item>

@@ -31,7 +31,7 @@
                             v-focus
                         />
                         </div>
-                        <label class="username">By {{todo.author}}</label>
+                        <label class="authorname">By {{todo.author}}</label>
                         <div>
                         <div class="remove-item action-item" @click="removeTodo(index)">
                             &times;
