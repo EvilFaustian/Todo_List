@@ -21,7 +21,7 @@
         v-focus
       />
     </div>
-    <label class="username">By {{author}}</label>
+    <label class="authorname">By {{author}}</label>
     <div>
       <div class="edit-item action-item" @click="editTodo"> &#9998; </div>
       <div class="remove-item action-item" @click="removeTodo(index)">
@@ -120,8 +120,11 @@ export default {
 </script>
 
 <style lang="scss">
-    .username {
+    .authorname {
         font-size: 12px;
         color: gray;
+        position: sticky;
+        top: 30px;
+        left: 10%;
     }
 </style>

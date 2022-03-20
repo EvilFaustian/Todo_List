@@ -164,6 +164,7 @@ button {
     background-color: white;
     appearance: none;
     padding: 4px;
+    margin: 1px;
 
     &:hover {
         background: lightgreen;
@@ -172,6 +173,10 @@ button {
     &:focus {
         outline: none;
     }
+}
+
+.checkAll {
+  margin-right: 5px;
 }
 
 .active {

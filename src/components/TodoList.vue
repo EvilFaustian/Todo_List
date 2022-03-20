@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="container">
      <label>User: {{username}}</label>
      <input type="text" class="todo-input" placeholder="What needs to be done" v-model="newTodo" @keyup.enter="addTodo">
      <transition-group name="fade" enter-active-class="animate__animated animate__fadeInUp" leave-active-class="animate__animated animate__fadeOutDown" mode="out-in">
@@ -8,7 +8,7 @@
      </transition-group>
 
     <div class="extra-container">
-        <div><label><input type="checkbox" :checked="!anyRemaining" @change="checkAllTodos">Check All</label></div>
+        <div><label><input type="checkbox" :checked="!anyRemaining" @change="checkAllTodos" class="checkAll">Check All</label></div>
         <div>{{ remaining }} items left</div>
 
     </div>

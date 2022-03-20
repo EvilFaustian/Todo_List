@@ -8,15 +8,15 @@
          </div>
         
         <div class="displayArchiviati">
-                <div v-for="(todo, index) in filterName" :key="todo.title" :index="index">
+                <div v-for="(todo, index) in filterName" :key="todo.id" :index="index">
                     <div class="todo-item">
                         <div class="todo-item-left">
-                        <input type="checkbox" v-model="completed" @change="doneEdit" />
+                        <input type="checkbox" v-model="todo.completed" @change="doneEdit" />
                         <div
                             v-if="!editing"
                             @dblclick="editTodo"
                             class="todo-item-label"
-                            :class="{ completed: completed }"
+                            :class="{ completed: todo.completed }"
                         >
                             {{ todo.title }}
                         </div>
@@ -53,7 +53,7 @@ export default {
         selectedOption: '',
         searchOption: '',
         nameSearch: 'true',
-        textSearch: 'false'
+        textSearch: 'false',
     }),
     methods: {
         todosFiltered() {
@@ -66,8 +66,21 @@ export default {
         searchText() {
             this.nameSearch = false;
             this.textSearch = true;
-        }
+        },
+        removeTodo(index) {
+          this.$store.state.archiviaTodo.splice(index, 1)
+      },
         
+    },
+    watch: {
+    checkAll() {
+      /* if (this.checkAll) {
+                this.completed = true
+            } else {
+                this.completed = this.todo.completed
+            } */
+      this.completed = this.checkAll ? true : this.todo.completed;
+        }
     },
     computed: {
         filter()  {
