@@ -3,7 +3,7 @@
     <div id="app">
         <ul class="nav">
             <li><router-link :to="{ name: 'home'}">Home</router-link></li>
-            <li><router-link :to="{ name: 'archivio'}">Archivio</router-link></li>
+            <li><router-link :to="{ name: 'archivio'}">Archive</router-link></li>
             <li><router-link :to="{ name: 'login'}">Login</router-link></li>
         </ul>
 
@@ -189,6 +189,5 @@ button {
 .fade-enter, .fade-leave-to {
     opacity: 0;
 }
-
 
 </style>

@@ -125,6 +125,5 @@ export default {
         color: gray;
         position: sticky;
         top: 30px;
-        left: 10%;
     }
 </style>
