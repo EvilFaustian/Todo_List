@@ -1,5 +1,5 @@
 <template>
-    <div id="login">
+    <div id="login" class="container">
         <h1>Login</h1>
         <input type="text" name="username" v-model="input.username" placeholder="Username" />
         <button type="button" v-on:click="login()">Login</button>
@@ -42,8 +42,22 @@
 
         border: 1px solid #CCCCCC;
         background-color: #FFFFFF;
+        position: relative;
+        top: 100px;
         margin: auto;
-        margin-top: 200px;
         padding: 20px;
+        width: 320px;
+    }
+    button {
+        padding: 5px;
+    }
+    input {
+        padding: 3px;
+        padding-top: 2px;
+        font-size: 17px;
+    }
+    h1 {
+        margin-top: -10px;
+        padding-bottom: 10px;
     }
 </style>
