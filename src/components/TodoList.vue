@@ -173,6 +173,10 @@ label {
         color: black;
     }
 }
+
+.remove-item {
+    padding-left: 7px;
+}
 .container {
     max-width: 600px;
 }
